@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('nuestraapp:server');
 var http = require('http');
+const mongoose = require('mongoose');
 
 /**
  * Get port from environment and store in Express.
@@ -20,7 +21,11 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-
+/*Database conection*/
+mongoose.connect("mongodb://fernando_fdzg:selena30@ds153015.mlab.com:53015/nuestraapp", {
+  useMongoClient: true
+  });
+const db = mongoose.connection;
 /**
  * Listen on provided port, on all network interfaces.
  */
