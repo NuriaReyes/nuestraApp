@@ -1,5 +1,5 @@
 var express = require('express');
-const User = require('../models/account');
+const User = require('../models/user');
 var router = express.Router();
 
 /* GET home page. */
