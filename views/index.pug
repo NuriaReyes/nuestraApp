@@ -1,5 +1,13 @@
 extends layout
+include ./user_form
 
 block content
   h1= title
   p Welcome to #{title}
+  +user_form("/subscribe", "POST", "Empieza a usarlo hoy!", "btn btn-primary", "Registrarme", "new")
+  
+  a(href="/show") mostrar usuarios
+  
+  
+  if (error)
+    h2= error
