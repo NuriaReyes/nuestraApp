@@ -24,8 +24,14 @@ var server = http.createServer(app);
 /*Database conection*/
 mongoose.connect("mongodb://fernando_fdzg:selena30@ds153015.mlab.com:53015/nuestraapp", {
   useMongoClient: true
-  });
+});
+
 const db = mongoose.connection;
+db.on('open', () => {
+  server.listen(port);
+  server.on('error', onError);
+  server.on('listening', onListening);
+})
 /**
  * Listen on provided port, on all network interfaces.
  */
